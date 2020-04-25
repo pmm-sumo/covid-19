@@ -4,7 +4,7 @@ This repo wraps [@gkossakowski's covid-19 repo](https://github.com/gkossakowski/
 
 There are several environment properties that control the execution of the script:
 
-* `URL` - the actual URL where the POST is being sent
+* `URL` - the actual URL where the POST is being sent (required)
 * `ALL` - when set to True, not only the today's data but also all historical data are being sent
 * `MAX_RECORDS_IN_POST` - number of records to include in a single request
 * `VERBOSE` - when set to True, the sent contents is being printed out on the console too
@@ -27,3 +27,6 @@ To run image:
 
 `docker run -e URL="https://MY_URL" -e VERBOSE=True covid19`
 
+To run image with all historical data being sent:
+
+`docker run -e URL="https://MY_URL" -e VERBOSE=True -e ALL=True covid19`
