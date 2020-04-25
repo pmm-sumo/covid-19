@@ -25,5 +25,5 @@ To build image:
 
 To run image:
 
-`docker run -e URL="https://MY_URL" covid19`
+`docker run -e URL="https://MY_URL" -e VERBOSE=True covid19`
 

@@ -1,12 +1,9 @@
-FROM python:3.7-alpine
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main" > /etc/apk/repositories
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories
+FROM jupyter/scipy-notebook
 
-RUN apk --no-cache --update-cache add gcc gfortran python python-dev py-pip build-base wget freetype-dev libpng-dev openblas-dev g++
-RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
-
-COPY . /
-WORKDIR /
+COPY . /covid
+USER root
+RUN chmod 1777 /covid
+WORKDIR /covid
 RUN pip install -r requirements.txt
-CMD /update-and-push.sh
+CMD /covid/update-and-push.sh
 
